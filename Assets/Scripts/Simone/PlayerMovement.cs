@@ -6,101 +6,65 @@ public class PlayerMovement : MonoBehaviour {
     
     public GameObject character;
 	public float speed = 8f;
+    public float rotSpeed = 210f;
     private bool isGround;
     private bool isWall;
-    bool rotRight = false;
-    bool rotLeft = false;
-    bool rotFoward = false;
-    bool rotBack = false;
-
-
-
+    
     private Rigidbody rb;
 
-	void Start () {
-
+	void Start ()
+    {
 		rb = gameObject.GetComponent<Rigidbody>();
-		
 	}
 
 	void Update () 
 
 	{
-        
-
-
-        if (Input.GetKey(KeyCode.D) && isWall == false) // Move RIGHT
+        // Move RIGHT
+        if (Input.GetKey(KeyCode.D) && isWall == false)
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
-            rotRight = true;
+            //transform.Rotate(Vector3.up * rotSpeed * Time.deltaTime);
+            rb.AddTorque(Vector3.up * speed * Time.deltaTime);
         }
 
-        if (rotRight)
+        // Move LEFT
+        if (Input.GetKey(KeyCode.A) && isWall == false)
         {
-            transform.eulerAngles = new Vector3(0, 90, 0); // Rotate RIGHT
-            rotRight = false;
+            transform.Rotate(-Vector3.up * rotSpeed * Time.deltaTime);
         }
 
-        if (Input.GetKey(KeyCode.A) && isWall == false) // Move LEFT
+        // Move FOWARD
+        if (Input.GetKey(KeyCode.W) && isWall == false)
         {
-            transform.position += Vector3.left * speed * Time.deltaTime;
-            rotLeft = true;
-        }
-        if (rotLeft)
-        {
-            transform.eulerAngles = new Vector3(0, -90, 0); // Rotate LEFT
-            rotLeft = false;
+            //transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            //rb.AddForce(Vector3.forward * speed * Time.deltaTime);
+            rb.AddRelativeForce(transform.forward * speed, ForceMode.Acceleration);//new Vector3(0, 0, speed);
         }
 
-        if (Input.GetKey(KeyCode.W) && isWall == false) // Move FOWARD
+        // Move BACK
+        if (Input.GetKey(KeyCode.S) && isWall == false)
         {
-            transform.position += Vector3.forward * speed * Time.deltaTime;
-            rotFoward = true;
+            transform.Translate(Vector3.back * speed * Time.deltaTime);
         }
 
-        if (rotFoward)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0); // Rotate FOWARD
-            rotFoward = false;
-        }
-
-        if (Input.GetKey(KeyCode.S) && isWall == false) // Move BACK
-        {
-            transform.position += Vector3.back * speed * Time.deltaTime;
-            rotBack = true;
-        }
-        if (rotBack)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0); // Rotate BACK
-            rotBack = false;
-        }
-
-        if (Input.GetButtonDown("Jump") && isGround == true) // JUMP
+        // JUMP
+        if (Input.GetButtonDown("Jump") && isGround == true)
         {
             isGround = false;
             rb.velocity = new Vector3(0, 8f, 0);
 
         }
-
-        /*if (this.transform.rotation.x != 0) // Make the player Stays on X position
-        {
-            Quaternion rot = transform.rotation;
-            rot.x = 0;
-            rot.y = 0;
-            rot.z = 0;
-            transform.rotation = rot;
-        }*/
-
 	}
 
-    void OnCollisionEnter(Collision other) // Jumps only if you are on the ground
+    // Jumps only if you are on the ground
+    void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Resource"))
         {
             isGround = true;
         }
 
-        if (other.gameObject.CompareTag("Solid"))
+        /*if (other.gameObject.CompareTag("Solid"))
         {
             isWall = true;
         }
@@ -108,7 +72,7 @@ public class PlayerMovement : MonoBehaviour {
         else
         {
             isWall = false;
-        }
+        }*/
     }
         
     void OnCollisionExit(Collision other)

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ResourceSteel
   - Ground
+  - Solid
+  - Resource
   layers:
   - Default
   - TransparentFX
