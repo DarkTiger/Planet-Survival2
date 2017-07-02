@@ -204,12 +204,6 @@ MonoBehaviour:
   plasticCount: 0
   glassCount: 0
   fuelCount: 0
-  playerSteelCount: 0
-  playerCircuitsCount: 0
-  playerUraniumCount: 0
-  playerPlasticCount: 0
-  playerGlassCount: 0
-  playerFuelCount: 0
 --- !u!1001 &132024343
 Prefab:
   m_ObjectHideFlags: 0
@@ -247,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4277900976581906, guid: e38108853a3864041bd9774f08a222b9, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e38108853a3864041bd9774f08a222b9, type: 2}
@@ -346,8 +340,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 6.53, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1550254225}
-  m_RootOrder: 2
+  m_Father: {fileID: 1694225085}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
 --- !u!81 &233453331
 AudioListener:
@@ -484,6 +478,35 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 620937492}
+--- !u!1 &720506332 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1360388424806096, guid: dbb848ba45d23ce4fa1a80f620d68019,
+    type: 2}
+  m_PrefabInternal: {fileID: 1550254224}
+--- !u!114 &720506333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 720506332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c8c67625397c844bab8fea8a1cceb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGUI: {fileID: 1648929594}
+  playerSteelCount: 0
+  playerCircuitsCount: 0
+  playerUraniumCount: 0
+  playerPlasticCount: 0
+  playerGlassCount: 0
+  playerFuelCount: 0
+  playerSteelText: {fileID: 1961478473}
+  playerCircuitsText: {fileID: 1312982137}
+  playerUraniumText: {fileID: 1750617130}
+  playerPlasticText: {fileID: 906228229}
+  playerGlassText: {fileID: 1933872082}
+  playerFuelText: {fileID: 620937494}
 --- !u!1 &777161361
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,35 +967,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1194257072}
---- !u!1 &1211267042 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1709952945622978, guid: dbb848ba45d23ce4fa1a80f620d68019,
-    type: 2}
-  m_PrefabInternal: {fileID: 1550254224}
---- !u!114 &1211267048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1211267042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2c8c67625397c844bab8fea8a1cceb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerGUI: {fileID: 1648929594}
-  playerSteelCount: 0
-  playerCircuitsCount: 0
-  playerUraniumCount: 0
-  playerPlasticCount: 0
-  playerGlassCount: 0
-  playerFuelCount: 0
-  playerSteelText: {fileID: 1961478473}
-  playerCircuitsText: {fileID: 1312982137}
-  playerUraniumText: {fileID: 1750617130}
-  playerPlasticText: {fileID: 906228229}
-  playerGlassText: {fileID: 1933872082}
-  playerFuelText: {fileID: 620937494}
 --- !u!1 &1304261946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,14 +1429,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4494421175350294, guid: dbb848ba45d23ce4fa1a80f620d68019, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbb848ba45d23ce4fa1a80f620d68019, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1550254225 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4624260198036748, guid: dbb848ba45d23ce4fa1a80f620d68019,
-    type: 2}
-  m_PrefabInternal: {fileID: 1550254224}
 --- !u!1 &1550335697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,7 +1611,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1843012885}
-  m_Father: {fileID: 1550254225}
+  m_Father: {fileID: 1694225085}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1683073179
@@ -1699,6 +1692,11 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1683073179}
+--- !u!4 &1694225085 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4574788492506050, guid: dbb848ba45d23ce4fa1a80f620d68019,
+    type: 2}
+  m_PrefabInternal: {fileID: 1550254224}
 --- !u!1 &1750617128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,7 +1968,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4334197314567106, guid: 8760e196cf62d2f4dbe6a3e35cb188cf, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114653099816897414, guid: 8760e196cf62d2f4dbe6a3e35cb188cf,
         type: 2}
