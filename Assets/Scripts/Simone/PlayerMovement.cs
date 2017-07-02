@@ -8,9 +8,11 @@ public class PlayerMovement : MonoBehaviour {
 	public float speed = 8f;
     private bool isGround;
     private bool isWall;
+    bool rotRight = false;
 
 
-	private Rigidbody rb;
+
+    private Rigidbody rb;
 
 	void Start () {
 
@@ -21,10 +23,30 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () 
 
 	{
+        
+
 
         if (Input.GetKey(KeyCode.D) && isWall == false) // Move RIGHT
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
+            rotRight = true;
+            
+        }
+
+        if (rotRight && transform.rotation.y != 90)
+        {
+            //rotRight = false;
+            //Quaternion rotationPlayer = transform.rotation;
+            //rotationPlayer.y = 90;
+            transform.Rotate(new Vector3(0, 1, 0), 5f);
+            Debug.Log(transform.rotation.y);
+            //= rotationPlayer;//Quaternion.Lerp(transform.rotation, rotationPlayer, 0.003f);
+        }
+        else
+        {
+
+            rotRight = false;
+            //Debug.Log("false");
         }
 
         if (Input.GetKey(KeyCode.A) && isWall == false) // Move LEFT
@@ -36,6 +58,7 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey(KeyCode.W) && isWall == false) // Move UP
         {
             transform.position += Vector3.forward * speed * Time.deltaTime;
+            
         }
 
         if (Input.GetKey(KeyCode.S) && isWall == false) // Move DOWN
