@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour {
     private bool isGround;
     private bool isWall;
     bool rotRight = false;
+    bool rotLeft = false;
+    bool rotFoward = false;
+    bool rotBack = false;
 
 
 
@@ -30,40 +33,46 @@ public class PlayerMovement : MonoBehaviour {
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
             rotRight = true;
-            
         }
 
-        if (rotRight && transform.rotation.y != 90)
+        if (rotRight)
         {
-            //rotRight = false;
-            //Quaternion rotationPlayer = transform.rotation;
-            //rotationPlayer.y = 90;
-            transform.Rotate(new Vector3(0, 1, 0), 5f);
-            Debug.Log(transform.rotation.y);
-            //= rotationPlayer;//Quaternion.Lerp(transform.rotation, rotationPlayer, 0.003f);
-        }
-        else
-        {
-
+            transform.eulerAngles = new Vector3(0, 90, 0); // Rotate RIGHT
             rotRight = false;
-            //Debug.Log("false");
         }
 
         if (Input.GetKey(KeyCode.A) && isWall == false) // Move LEFT
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
-
+            rotLeft = true;
+        }
+        if (rotLeft)
+        {
+            transform.eulerAngles = new Vector3(0, -90, 0); // Rotate LEFT
+            rotLeft = false;
         }
 
-        if (Input.GetKey(KeyCode.W) && isWall == false) // Move UP
+        if (Input.GetKey(KeyCode.W) && isWall == false) // Move FOWARD
         {
             transform.position += Vector3.forward * speed * Time.deltaTime;
-            
+            rotFoward = true;
         }
 
-        if (Input.GetKey(KeyCode.S) && isWall == false) // Move DOWN
+        if (rotFoward)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0); // Rotate FOWARD
+            rotFoward = false;
+        }
+
+        if (Input.GetKey(KeyCode.S) && isWall == false) // Move BACK
         {
             transform.position += Vector3.back * speed * Time.deltaTime;
+            rotBack = true;
+        }
+        if (rotBack)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0); // Rotate BACK
+            rotBack = false;
         }
 
         if (Input.GetButtonDown("Jump") && isGround == true) // JUMP
