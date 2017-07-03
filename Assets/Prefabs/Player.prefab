@@ -838,6 +838,7 @@ MonoBehaviour:
   runSpeed: 7
   rotSpeed: 75
   jumpSpeed: 300
+  anim: {fileID: 0}
 --- !u!114 &114588942067038766
 MonoBehaviour:
   m_ObjectHideFlags: 1

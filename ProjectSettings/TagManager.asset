@@ -9,6 +9,8 @@ TagManager:
   - Solid
   - Resource
   - PlayerCamera
+  - Rocket
+  - NoResourceZone
   layers:
   - Default
   - TransparentFX

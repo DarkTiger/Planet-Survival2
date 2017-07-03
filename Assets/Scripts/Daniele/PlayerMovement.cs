@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed;
     private bool onGround;
     private Rigidbody rb;
-    private Animator anim;
+    public Animator anim;
     private float jumpTimer = 0;
     private bool runMode = false;
 
@@ -34,16 +34,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             runMode = false;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(Vector3.up * rotSpeed * Time.deltaTime);
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(-Vector3.up * rotSpeed * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.W))
@@ -72,6 +62,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 anim.SetInteger("Speed", 0);
             }
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(Vector3.up * rotSpeed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(-Vector3.up * rotSpeed * Time.deltaTime);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))

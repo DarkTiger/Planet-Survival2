@@ -1,26 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class ResourcesPlacement : MonoBehaviour 
 {
 	public List<GameObject> resources;
-	public int resourceCount = 10;
+    public int resourceCount = 10;
+    public Canvas loadingCanvas;
+    public Transform rocket;
+
 
 
 	void Start () 
 	{
-		PlaceResources();
+        loadingCanvas.enabled = true;
+        PlaceResources();
+        loadingCanvas.enabled = false;
 	}
-	
 
-	void PlaceResources()
-	{
-		for (int i = 0; i < resourceCount; i++)
-		{
-			Vector3 newPos = new Vector3(Random.Range(470, 30), Random.Range(0, 50), Random.Range(30, 470));
-			GameObject newResource = Instantiate(resources[Random.Range(0, resources.Count)], newPos, new Quaternion(Random.Range(0,360), Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+    
+   	void PlaceResources()
+    {
+        for (int i = 0; i < resourceCount; i++)
+        {
+            Vector3 newPos = new Vector3(Random.Range(470, 30), Random.Range(0, 35), Random.Range(30, 470));
+            while (Vector3.Distance(newPos, rocket.position) < 20)
+            {
+                newPos = new Vector3(Random.Range(470, 30), Random.Range(0, 30), Random.Range(30, 470));
+            }
 
+            GameObject newResource = Instantiate(resources[Random.Range(0, resources.Count)], newPos, new Quaternion(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+                        
             if (TestDistanceFromGround(newResource, 1f) != "Ground")
             {
                 Destroy(newResource);
