@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-	public float speed;
+	public float walkSpeed;
+    public float runSpeed;
     public float rotSpeed;
     public float jumpSpeed;
     private bool onGround;
     private Rigidbody rb;
     private Animator anim;
     private float jumpTimer = 0;
+    private bool runMode = false;
+
 
 
 	void Start ()
@@ -22,6 +25,17 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update()
     {
+        float speed = walkSpeed;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = runSpeed;
+            runMode = true;
+        }
+        else
+        {
+            runMode = false;
+        }
+
         if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(Vector3.up * rotSpeed * Time.deltaTime);
@@ -36,16 +50,20 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
-            if (!anim.GetBool("Jumping") && onGround)
+            if (runMode)
             {
                 anim.SetInteger("Speed", 2);
             }
+            else
+            {
+                anim.SetInteger("Speed", 1);
+            }   
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(Vector3.back * speed * Time.deltaTime);
-            anim.SetInteger("Speed", 2);
+            transform.Translate(Vector3.back * walkSpeed * Time.deltaTime);
+            anim.SetInteger("Speed", 1);
         }
 
         if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
@@ -56,15 +74,20 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (onGround)
             {
                 rb.AddExplosionForce(jumpSpeed, transform.position, 1);
                 anim.SetBool("Jumping", true);
+                jumpTimer = 1f;
                 onGround = false;
             }
+        }
+
+        if (!onGround)
+        {
+            anim.SetBool("Jumping", true);
         }
 
         if (jumpTimer > 0.5)
@@ -73,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (anim.GetBool("Jumping"))
         {
-           //anim.SetBool("Jumping", false);
+           anim.SetBool("Jumping", false);
         }
     }
 
