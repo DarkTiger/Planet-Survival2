@@ -224,13 +224,17 @@ Prefab:
         type: 2}
       propertyPath: resources.Array.data[4]
       value: 
-      objectReference: {fileID: 100012, guid: a4da6fc2384ecee4d8522ea5e1fa7653, type: 3}
+      objectReference: {fileID: 122888, guid: feed7f0bf9c28ea458500c3b332a4678, type: 2}
     - target: {fileID: 114718067555502894, guid: 3bf409a26487a8c46a4e009093a5b458,
         type: 2}
       propertyPath: resources.Array.data[5]
       value: 
       objectReference: {fileID: 1000012006197310, guid: 465c505844950da499dcf096a6da4409,
         type: 2}
+    - target: {fileID: 1515620845206280, guid: 3bf409a26487a8c46a4e009093a5b458, type: 2}
+      propertyPath: m_TagString
+      value: Resource
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bf409a26487a8c46a4e009093a5b458, type: 2}
   m_IsPrefabParent: 0
