@@ -45,7 +45,7 @@ public class ResourcesPlacement : MonoBehaviour
     {
         string colliderTag = "";
 
-        if (newResource.name == "Crystal(Clone)")
+        if (newResource.name == "Crystal(Clone)" || newResource.name == "MARMO(Clone)")
         {
             newResource.transform.rotation = Quaternion.identity;
         }
