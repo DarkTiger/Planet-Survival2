@@ -16,25 +16,16 @@ public class ResourcesPlacement : MonoBehaviour
 
 
 
-	void Start () 
-	{
-        //loadingCanvas.enabled = true;
-        //StartCoroutine("UpdateLoadingText");
-        //PlaceResources();
-	}
-
-
     void Update()
     {
         if (instancedCount < resourceCount)
         {
-            //StartCoroutine("PlaceResources");
             PlaceResources();
          }
     }
 
 
-    /*IEnumerator*/void PlaceResources()
+    void PlaceResources()
     {               
         instancedCount++;
 
@@ -57,8 +48,6 @@ public class ResourcesPlacement : MonoBehaviour
         {
             loadingCanvas.enabled = false;
         }
-
-        //yield return null;
     }
 
 
