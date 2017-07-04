@@ -199,6 +199,11 @@ Prefab:
       propertyPath: rocket
       value: 
       objectReference: {fileID: 386176677}
+    - target: {fileID: 114718067555502894, guid: 3bf409a26487a8c46a4e009093a5b458,
+        type: 2}
+      propertyPath: resourceCount
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bf409a26487a8c46a4e009093a5b458, type: 2}
   m_IsPrefabParent: 0
@@ -387,6 +392,14 @@ Prefab:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 34850971}
+    - target: {fileID: 1727732073461854, guid: 8760e196cf62d2f4dbe6a3e35cb188cf, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1202591119109308, guid: 8760e196cf62d2f4dbe6a3e35cb188cf, type: 2}
+      propertyPath: m_TagString
+      value: Rocket
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8760e196cf62d2f4dbe6a3e35cb188cf, type: 2}
   m_IsPrefabParent: 0
@@ -452,3 +465,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2103088103 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1360388424806096, guid: dbb848ba45d23ce4fa1a80f620d68019,
+    type: 2}
+  m_PrefabInternal: {fileID: 245651712}
+--- !u!114 &2103088111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2103088103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12dc06d00e4cfe1479b3f4c5856fbeaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabRange: 2

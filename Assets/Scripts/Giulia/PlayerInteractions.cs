@@ -2,29 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThisIsNotAnInventory : MonoBehaviour 
+public class PlayerInteractions : MonoBehaviour 
 {
     GameObject player;
-
     public float grabRange;
+
 
     void Start()
     {
         player = GameObject.Find("Player");
     }
 
+
     void Update()
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(player.transform.position, Vector3.forward, out hit, grabRange))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
         {
-            if (hit.collider.tag == "ResourceSteel")
+            Debug.Log(hit.collider.tag);
+            /*if (hit.collider.tag == "ResourceSteel")
             {
                 
-            }
+            }*/
         }
     }
-    
-
 }
