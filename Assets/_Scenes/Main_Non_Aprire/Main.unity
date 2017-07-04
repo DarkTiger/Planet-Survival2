@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.66176474, g: 0.62639457, b: 0.5109213, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.0075
+  m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -682,6 +682,35 @@ Prefab:
     - {fileID: 136092877707553448, guid: 8760e196cf62d2f4dbe6a3e35cb188cf, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 8760e196cf62d2f4dbe6a3e35cb188cf, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1173729496 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1360388424806096, guid: dbb848ba45d23ce4fa1a80f620d68019,
+    type: 2}
+  m_PrefabInternal: {fileID: 245651712}
+--- !u!114 &1173729497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1173729496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c8c67625397c844bab8fea8a1cceb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGUI: {fileID: 0}
+  playerSteelCount: 0
+  playerCircuitsCount: 0
+  playerUraniumCount: 0
+  playerPlasticCount: 0
+  playerGlassCount: 0
+  playerFuelCount: 0
+  playerSteelText: {fileID: 0}
+  playerCircuitsText: {fileID: 0}
+  playerUraniumText: {fileID: 0}
+  playerPlasticText: {fileID: 0}
+  playerGlassText: {fileID: 0}
+  playerFuelText: {fileID: 0}
 --- !u!1 &1219387242 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 190212, guid: d5d2921f2cfc32a44a4b7882273e252f, type: 2}
