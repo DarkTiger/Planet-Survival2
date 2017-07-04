@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 23541248856601614}
   - component: {fileID: 114310138345884500}
   - component: {fileID: 54191993823593324}
+  - component: {fileID: 114764333139435146}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -850,6 +851,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd1cad45fbf82d408c2570937babcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114764333139435146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1360388424806096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c8c67625397c844bab8fea8a1cceb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGUI: {fileID: 0}
+  playerSteelCount: 0
+  playerCircuitsCount: 0
+  playerUraniumCount: 0
+  playerPlasticCount: 0
+  playerGlassCount: 0
+  playerFuelCount: 0
+  playerSteelText: {fileID: 0}
+  playerCircuitsText: {fileID: 0}
+  playerUraniumText: {fileID: 0}
+  playerPlasticText: {fileID: 0}
+  playerGlassText: {fileID: 0}
+  playerFuelText: {fileID: 0}
 --- !u!124 &124076837073063084
 Behaviour:
   m_ObjectHideFlags: 1
