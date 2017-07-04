@@ -11,9 +11,16 @@ public class ResourcesPlacement : MonoBehaviour
     public Canvas loadingCanvas;
     public Text loadingText;
     public Transform rocket;
-    private bool onInstancing = false;
+    [HideInInspector]
+    public bool onInstancing = true;
     private int instancedCount = 0;
 
+
+
+    void Start()
+    {
+        loadingCanvas.enabled = true;
+    }
 
 
     void Update()
@@ -21,7 +28,7 @@ public class ResourcesPlacement : MonoBehaviour
         if (instancedCount < resourceCount)
         {
             PlaceResources();
-         }
+        }
     }
 
 
@@ -47,6 +54,7 @@ public class ResourcesPlacement : MonoBehaviour
         if (instancedCount >= resourceCount)
         {
             loadingCanvas.enabled = false;
+            onInstancing = false;
         }
     }
 
