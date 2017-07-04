@@ -9,36 +9,57 @@ public class ResourcesPlacement : MonoBehaviour
 	public List<GameObject> resources;
     public int resourceCount = 10;
     public Canvas loadingCanvas;
+    public Text loadingText;
     public Transform rocket;
+    private bool onInstancing = false;
+    private int instancedCount = 0;
 
 
 
 	void Start () 
 	{
-        loadingCanvas.enabled = true;
-        PlaceResources();
-        loadingCanvas.enabled = false;
+        //loadingCanvas.enabled = true;
+        //StartCoroutine("UpdateLoadingText");
+        //PlaceResources();
 	}
 
-    
-   	void PlaceResources()
+
+    void Update()
     {
-        for (int i = 0; i < resourceCount; i++)
+        if (instancedCount < resourceCount)
         {
-            Vector3 newPos = new Vector3(Random.Range(470, 30), Random.Range(0, 35), Random.Range(30, 470));
-            while (Vector3.Distance(newPos, rocket.position) < 20)
-            {
-                newPos = new Vector3(Random.Range(470, 30), Random.Range(0, 30), Random.Range(30, 470));
-            }
+            //StartCoroutine("PlaceResources");
+            PlaceResources();
+         }
+    }
 
-            GameObject newResource = Instantiate(resources[Random.Range(0, resources.Count)], newPos, new Quaternion(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
-                        
-            if (TestDistanceFromGround(newResource, 1f) != "Ground")
-            {
-                Destroy(newResource);
-            }
-        }	
-	}
+
+    /*IEnumerator*/void PlaceResources()
+    {               
+        instancedCount++;
+
+        Vector3 newPos = new Vector3(Random.Range(470, 30), Random.Range(0, 35), Random.Range(30, 470));
+        while (Vector3.Distance(newPos, rocket.position) < 20)
+        {
+            newPos = new Vector3(Random.Range(470, 30), Random.Range(0, 30), Random.Range(30, 470));
+        }
+
+        GameObject newResource = Instantiate(resources[Random.Range(0, resources.Count)], newPos, new Quaternion(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+                
+        if (TestDistanceFromGround(newResource, 1f) != "Ground")
+        {
+            Destroy(newResource);
+        }
+
+        loadingText.text = "CREATING PROCEDURAL RESOURCES: " + Mathf.Round((instancedCount * 100) / resourceCount).ToString() + "%";
+
+        if (instancedCount >= resourceCount)
+        {
+            loadingCanvas.enabled = false;
+        }
+
+        //yield return null;
+    }
 
 
     string TestDistanceFromGround(GameObject newResource, float rayLength)
