@@ -28,6 +28,7 @@ GameObject:
   m_Component:
   - component: {fileID: 444006}
   - component: {fileID: 54241636511306226}
+  - component: {fileID: 114331724894075260}
   m_Layer: 0
   m_Name: SpaceshipFighter_Spear
   m_TagString: Resource
@@ -42,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 296.71, y: 2.5309331, z: 283.50784}
+  m_LocalPosition: {x: 262.1068, y: 2.600793, z: 286.3826}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 498814}
@@ -160,3 +161,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 15.08, y: 1.3, z: 5}
   m_Center: {x: 0, y: 0.39, z: -0.09}
+--- !u!114 &114331724894075260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912256737d0aa5a40a61496600dd99dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steelCount: 16
+  circuitsCount: 2
+  uraniumCount: 0
+  plasticCount: 3
+  glassCount: 10
+  fuelCount: 13
+  type: 0

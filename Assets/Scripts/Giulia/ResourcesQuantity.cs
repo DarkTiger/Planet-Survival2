@@ -10,4 +10,45 @@ public class ResourcesQuantity : MonoBehaviour
     public int plasticCount = 0;
     public int glassCount = 0;
     public int fuelCount = 0;
+    public ResourceType type;
+
+
+
+    public enum ResourceType
+    {
+        SpaceShip,
+        Crystal,
+        Antenna,
+        Plant
+    }
+
+
+    void Start()
+    {
+        if (type == ResourceType.SpaceShip)
+        {
+            steelCount = Mathf.RoundToInt(Random.Range(10, 50));
+            circuitsCount = Mathf.RoundToInt(Random.Range(0, 10));
+            uraniumCount = Mathf.RoundToInt(Random.Range(0, 10));
+            plasticCount = Mathf.RoundToInt(Random.Range(5, 25));
+            glassCount = Mathf.RoundToInt(Random.Range(5, 20));
+            fuelCount = Mathf.RoundToInt(Random.Range(0, 10));
+        }
+        else if (type == ResourceType.Crystal)
+        {
+            uraniumCount = Mathf.RoundToInt(Random.Range(10, 50));
+            glassCount = Mathf.RoundToInt(Random.Range(5, 15));
+        }
+        else if (type == ResourceType.Antenna)
+        {
+            steelCount = Mathf.RoundToInt(Random.Range(10, 25));
+            circuitsCount = Mathf.RoundToInt(Random.Range(10, 50));
+            uraniumCount = Mathf.RoundToInt(Random.Range(0, 10));
+            plasticCount = Mathf.RoundToInt(Random.Range(0, 20));
+        }
+        else if (type == ResourceType.Plant)
+        {
+            fuelCount = Mathf.RoundToInt(Random.Range(20, 50));
+        }
+    }
 }

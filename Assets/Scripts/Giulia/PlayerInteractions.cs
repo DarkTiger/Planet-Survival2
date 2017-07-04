@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour 
 {
-    GameObject player;
     public float grabRange;
+    public Camera rocketCamera;
+    public Camera playerCamera;
+    public GameObject rocketGUI;
+    public GameObject playerGUI;
+
+    PlayerMovement playerMovement;
 
 
     void Start()
     {
-        player = GameObject.Find("Player");
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
 
@@ -20,11 +25,29 @@ public class PlayerInteractions : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
         {
-            Debug.Log(hit.collider.tag);
-            /*if (hit.collider.tag == "ResourceSteel")
+            if (hit.collider.tag == "Rocket")
             {
-                
-            }*/
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (rocketCamera.enabled)
+                    {
+                        SetPlayerCamera(true);
+                    }
+                    else
+                    {
+                        SetPlayerCamera(false);
+                    }                     
+                }  
+            }
         }
+    }
+
+    void SetPlayerCamera(bool isSet)
+    {
+        playerCamera.enabled = isSet;
+        rocketCamera.enabled = !isSet;
+        rocketGUI.SetActive(!isSet);
+        playerGUI.SetActive(isSet);
+        playerMovement.enabled = isSet;
     }
 }
