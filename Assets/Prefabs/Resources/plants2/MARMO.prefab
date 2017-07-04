@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 95841629202096530}
   - component: {fileID: 136254137984350670}
   - component: {fileID: 54961507811388254}
+  - component: {fileID: 114931966111131124}
   m_Layer: 0
   m_Name: MARMO
   m_TagString: Untagged
@@ -53,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314149335274242}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 177.88708, y: 9.960308, z: 393.81674}
+  m_LocalPosition: {x: 273.94135, y: 2.3056698, z: 301.3241}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4677241109334790}
@@ -144,6 +145,24 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114931966111131124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1314149335274242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912256737d0aa5a40a61496600dd99dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steelCount: 0
+  circuitsCount: 0
+  uraniumCount: 0
+  plasticCount: 0
+  glassCount: 0
+  fuelCount: 0
+  type: 3
 --- !u!136 &136254137984350670
 CapsuleCollider:
   m_ObjectHideFlags: 1
