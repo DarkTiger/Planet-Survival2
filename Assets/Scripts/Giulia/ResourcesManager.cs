@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ResourcesManager : MonoBehaviour 
 {
-
     public int steelCount = 0;
     public int circuitsCount = 0;
     public int uraniumCount = 0;
@@ -20,6 +19,16 @@ public class ResourcesManager : MonoBehaviour
     public Text glassCountText;
     public Text fuelCountText;
 
+    public Button rocketButton;
+
+    public GameObject getPlayerResources;
+    PlayerCameraAndGUI playerCameraAndGUI;
+
+    private void Start()
+    {
+        playerCameraAndGUI = getPlayerResources.GetComponent<PlayerCameraAndGUI>();
+    }
+
     void Update()
     {
         steelCountText.text = steelCount.ToString();
@@ -30,6 +39,21 @@ public class ResourcesManager : MonoBehaviour
         fuelCountText.text = fuelCount.ToString();
     }
 
+    public void OnRocketButtonClick()
+    {
+        steelCount += playerCameraAndGUI.playerSteelCount;
+        circuitsCount += playerCameraAndGUI.playerCircuitsCount;
+        uraniumCount += playerCameraAndGUI.playerUraniumCount;
+        plasticCount += playerCameraAndGUI.playerPlasticCount;
+        glassCount += playerCameraAndGUI.playerGlassCount;
+        fuelCount += playerCameraAndGUI.playerFuelCount;
 
-
+        playerCameraAndGUI.playerSteelCount = 0;
+        playerCameraAndGUI.playerCircuitsCount = 0;
+        playerCameraAndGUI.playerUraniumCount = 0;
+        playerCameraAndGUI.playerPlasticCount = 0;
+        playerCameraAndGUI.playerGlassCount = 0;
+        playerCameraAndGUI.playerFuelCount = 0;
+    }
+    
 }
