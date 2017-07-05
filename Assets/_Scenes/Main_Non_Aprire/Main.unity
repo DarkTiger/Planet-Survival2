@@ -404,6 +404,10 @@ Prefab:
       propertyPath: playerFuelCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1673384538274858, guid: dbb848ba45d23ce4fa1a80f620d68019, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbb848ba45d23ce4fa1a80f620d68019, type: 2}
   m_IsPrefabParent: 0
@@ -414,6 +418,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114718067555502894, guid: 3bf409a26487a8c46a4e009093a5b458,
+        type: 2}
+      propertyPath: resources.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4075749372660680, guid: 3bf409a26487a8c46a4e009093a5b458, type: 2}
       propertyPath: m_LocalPosition.x
       value: 321.7
@@ -454,7 +463,33 @@ Prefab:
     - target: {fileID: 114718067555502894, guid: 3bf409a26487a8c46a4e009093a5b458,
         type: 2}
       propertyPath: resourceCount
-      value: 100
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114718067555502894, guid: 3bf409a26487a8c46a4e009093a5b458,
+        type: 2}
+      propertyPath: resources.Array.data[7]
+      value: 
+      objectReference: {fileID: 1579153100013452, guid: 63e03b33320168048a6c8bf64b633846,
+        type: 2}
+    - target: {fileID: 114718067555502894, guid: 3bf409a26487a8c46a4e009093a5b458,
+        type: 2}
+      propertyPath: resources.Array.data[8]
+      value: 
+      objectReference: {fileID: 100010, guid: dc803f457af55134a88f57e94ab1a329, type: 2}
+    - target: {fileID: 224661989090398380, guid: 3bf409a26487a8c46a4e009093a5b458,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 223732934410713032, guid: 3bf409a26487a8c46a4e009093a5b458,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114354177499115864, guid: 3bf409a26487a8c46a4e009093a5b458,
+        type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bf409a26487a8c46a4e009093a5b458, type: 2}
