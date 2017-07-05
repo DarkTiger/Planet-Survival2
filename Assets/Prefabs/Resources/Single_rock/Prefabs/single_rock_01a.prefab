@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 23465712329357800}
   m_Layer: 0
   m_Name: single_rock_01a
-  m_TagString: Resource
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
