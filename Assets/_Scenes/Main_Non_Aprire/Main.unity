@@ -377,7 +377,7 @@ Prefab:
     - target: {fileID: 114764333139435146, guid: dbb848ba45d23ce4fa1a80f620d68019,
         type: 2}
       propertyPath: playerSteelCount
-      value: 39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114764333139435146, guid: dbb848ba45d23ce4fa1a80f620d68019,
         type: 2}
@@ -454,7 +454,7 @@ Prefab:
     - target: {fileID: 114718067555502894, guid: 3bf409a26487a8c46a4e009093a5b458,
         type: 2}
       propertyPath: resourceCount
-      value: 100
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bf409a26487a8c46a4e009093a5b458, type: 2}
