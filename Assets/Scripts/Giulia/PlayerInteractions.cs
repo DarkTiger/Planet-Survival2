@@ -37,7 +37,24 @@ public class PlayerInteractions : MonoBehaviour
                     {
                         SetPlayerCamera(false);
                     }                     
-                }  
+                }
+            }
+            else if (hit.collider.tag == "Resource")
+            {
+               GameObject resource = hit.collider.gameObject;
+
+               PlayerCameraAndGUI inventory = GetComponent<PlayerCameraAndGUI>();
+               ResourcesQuantity resCount = new ResourcesQuantity();
+               resCount = resource.GetComponent<ResourcesQuantity>();
+
+               inventory.playerSteelCount += resCount.steelCount;
+               inventory.playerCircuitsCount += resCount.circuitsCount;
+               inventory.playerUraniumCount += resCount.uraniumCount;
+               inventory.playerPlasticCount += resCount.plasticCount;
+               inventory.playerGlassCount += resCount.glassCount;
+               inventory.playerFuelCount += resCount.fuelCount;
+
+               Destroy(resource);
             }
         }
     }

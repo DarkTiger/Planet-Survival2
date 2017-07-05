@@ -38,9 +38,10 @@ GameObject:
   - component: {fileID: 33387925801368492}
   - component: {fileID: 23891803115035660}
   - component: {fileID: 65269510827161888}
+  - component: {fileID: 114045159424690134}
   m_Layer: 0
   m_Name: CrystalModel
-  m_TagString: Untagged
+  m_TagString: Resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,3 +139,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.03, y: 0.04, z: 0.02}
   m_Center: {x: -0.0055656256, y: 0.02, z: 0.013663684}
+--- !u!114 &114045159424690134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1899897969841172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912256737d0aa5a40a61496600dd99dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steelCount: 0
+  circuitsCount: 0
+  uraniumCount: 0
+  plasticCount: 0
+  glassCount: 0
+  fuelCount: 0
+  type: 1
