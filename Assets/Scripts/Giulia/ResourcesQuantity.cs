@@ -19,7 +19,10 @@ public class ResourcesQuantity : MonoBehaviour
         SpaceShip,
         Crystal,
         Antenna,
-        Plant
+        Plant,
+        Vent,
+        Wheel,
+        SteelStuff
     }
 
 
@@ -49,6 +52,22 @@ public class ResourcesQuantity : MonoBehaviour
         else if (type == ResourceType.Plant)
         {
             fuelCount = Mathf.RoundToInt(Random.Range(20, 50));
+        }
+        else if (type == ResourceType.Vent)
+        {
+            steelCount = Mathf.RoundToInt(Random.Range(0, 20));
+            circuitsCount = Mathf.RoundToInt(Random.Range(0, 15));
+            uraniumCount = Mathf.RoundToInt(Random.Range(0, 5));
+            plasticCount = Mathf.RoundToInt(Random.Range(0, 10));
+        }
+        else if (type == ResourceType.Wheel)
+        {
+            steelCount = Mathf.RoundToInt(Random.Range(0, 20));
+            plasticCount = Mathf.RoundToInt(Random.Range(10, 30));
+        }
+        else if (type == ResourceType.SteelStuff)
+        {
+            steelCount = Mathf.RoundToInt(Random.Range(5, 15));
         }
     }
 }

@@ -25,9 +25,9 @@ public class PlayerInteractions : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
         {
-            if (hit.collider.tag == "Rocket")
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (hit.collider.tag == "Rocket")
                 {
                     if (rocketCamera.enabled)
                     {
@@ -38,23 +38,23 @@ public class PlayerInteractions : MonoBehaviour
                         SetPlayerCamera(false);
                     }                     
                 }
-            }
-            else if (hit.collider.tag == "Resource")
-            {
-               GameObject resource = hit.collider.gameObject;
+                else if (hit.collider.tag == "Resource")
+                {
+                    GameObject resource = hit.collider.gameObject;
 
-               PlayerCameraAndGUI inventory = GetComponent<PlayerCameraAndGUI>();
-               ResourcesQuantity resCount = new ResourcesQuantity();
-               resCount = resource.GetComponent<ResourcesQuantity>();
+                    PlayerCameraAndGUI inventory = GetComponent<PlayerCameraAndGUI>();
+                    ResourcesQuantity resCount = new ResourcesQuantity();
+                    resCount = resource.GetComponent<ResourcesQuantity>();
 
-               inventory.playerSteelCount += resCount.steelCount;
-               inventory.playerCircuitsCount += resCount.circuitsCount;
-               inventory.playerUraniumCount += resCount.uraniumCount;
-               inventory.playerPlasticCount += resCount.plasticCount;
-               inventory.playerGlassCount += resCount.glassCount;
-               inventory.playerFuelCount += resCount.fuelCount;
+                    inventory.playerSteelCount += resCount.steelCount;
+                    inventory.playerCircuitsCount += resCount.circuitsCount;
+                    inventory.playerUraniumCount += resCount.uraniumCount;
+                    inventory.playerPlasticCount += resCount.plasticCount;
+                    inventory.playerGlassCount += resCount.glassCount;
+                    inventory.playerFuelCount += resCount.fuelCount;
 
-               Destroy(resource);
+                    Destroy(resource);
+                }
             }
         }
     }
