@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpTimer = 0;
     private bool runMode = false;
     ResourcesPlacement resorcesPlacement;
+    PlayerConditions playerConditions;
 
 
 
@@ -22,12 +23,14 @@ public class PlayerMovement : MonoBehaviour
 		rb = gameObject.GetComponent<Rigidbody>();
         anim = transform.GetChild(0).GetComponent<Animator>();
         resorcesPlacement = GameObject.Find("ResourcePlacer").GetComponent<ResourcesPlacement>();
+
+        playerConditions = GetComponent<PlayerConditions>();
 	}
 
 
 	void Update()
     {
-        if (!resorcesPlacement.onInstancing)
+        if (!resorcesPlacement.onInstancing && playerConditions.health > 0)
         {
             float speed = walkSpeed;
             if (Input.GetKey(KeyCode.LeftShift))

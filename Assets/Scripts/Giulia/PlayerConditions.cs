@@ -12,18 +12,28 @@ public class PlayerConditions : MonoBehaviour {
 
     PlayerInteractions playerInteractions;
 
+    ResourcesPlacement resourcesPlacement;
+
     private void Start()
     {
         playerInteractions = GetComponent<PlayerInteractions>();
+
+        resourcesPlacement = GameObject.Find("ResourcePlacer").GetComponent<ResourcesPlacement>();
     }
 
     private void Update()
     {
-        if (playerInteractions.playerCamera.enabled)
+        if (playerInteractions.playerCamera.enabled && !resourcesPlacement.onInstancing)
         {
             // decreases player's health
-            health -= coef * Time.deltaTime;
-
+            if (health > 0)
+            {
+                health -= coef * Time.deltaTime;
+            }
+            else
+            {
+                health = 0;
+            }
             // sets text to health percentage
             healthText.text = "Batteries at " + Mathf.Round(health).ToString() + "%";
         }
@@ -35,11 +45,7 @@ public class PlayerConditions : MonoBehaviour {
             // sets text to health percentage
             rocketHealthText.text = "Batteries at " + Mathf.Round(health).ToString() + "%";
         }
-    }
 
-    void setHealth()
-    {
-        
-    }
 
+    }
 }

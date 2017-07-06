@@ -13,8 +13,6 @@ public class GameManager : MonoBehaviour
     {
         playerConditions = getConditions.GetComponent<PlayerConditions>();
         player = GameObject.Find("Player");
-
-        GameOver();
     }
 
     void Update()
@@ -29,15 +27,13 @@ public class GameManager : MonoBehaviour
 
     void GameOver()
     {
-        GameObject animation = player.transform.GetChild(1).gameObject;
+        GameObject animation = player.transform.GetChild(0).gameObject;
         animation.GetComponent<Animator>().enabled = false;
 
-        GameObject camera = player.transform.GetChild(0).gameObject;
+        GameObject camera = player.transform.GetChild(1).gameObject;
         camera.transform.parent = null;
 
         Rigidbody rbPlayer = player.GetComponent<Rigidbody>();
-        rbPlayer.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        rbPlayer.constraints = RigidbodyConstraints.None;// FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
-
-
 }
