@@ -9,19 +9,19 @@ public class PlayerConditions : MonoBehaviour {
     public float coef = 0.7f;
     public Text healthText;
     public Text rocketHealthText;
-
-    PlayerInteractions playerInteractions;
-
+    PlayerInteractions playerInteractions; 
     ResourcesPlacement resourcesPlacement;
 
-    private void Start()
+
+
+    void Start()
     {
         playerInteractions = GetComponent<PlayerInteractions>();
-
         resourcesPlacement = GameObject.Find("ResourcePlacer").GetComponent<ResourcesPlacement>();
     }
 
-    private void Update()
+
+    void Update()
     {
         if (playerInteractions.playerCamera.enabled && !resourcesPlacement.onInstancing)
         {
@@ -35,7 +35,7 @@ public class PlayerConditions : MonoBehaviour {
                 health = 0;
             }
             // sets text to health percentage
-            healthText.text = "Batteries at " + Mathf.Round(health).ToString() + "%";
+            healthText.text = "ENERGY: " + Mathf.Round(health).ToString() + "%";
         }
         else
         {
@@ -43,9 +43,7 @@ public class PlayerConditions : MonoBehaviour {
             health = 100.0f;
             
             // sets text to health percentage
-            rocketHealthText.text = "Batteries at " + Mathf.Round(health).ToString() + "%";
+            rocketHealthText.text = "ENERGY: " + Mathf.Round(health).ToString() + "%";
         }
-
-
     }
 }
