@@ -72,7 +72,16 @@ public class GameManager : MonoBehaviour
 
 
         // Updates time text
-        timeText.text = (Mathf.FloorToInt(maxTime) / 60).ToString() + ":" + (Mathf.FloorToInt(maxTime) % 60).ToString();
+        int seconds = (Mathf.FloorToInt(maxTime) % 60);
+
+        if (seconds < 10)
+        {
+            timeText.text = (Mathf.FloorToInt(maxTime) / 60).ToString() + ":0" + seconds.ToString();
+        }
+        else
+        {
+            timeText.text = (Mathf.FloorToInt(maxTime) / 60).ToString() + ":" + seconds.ToString();
+        }
     }
 
 

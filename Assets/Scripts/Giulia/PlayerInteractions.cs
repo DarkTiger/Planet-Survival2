@@ -35,9 +35,20 @@ public class PlayerInteractions : MonoBehaviour
         }
         else
         {
-            RaycastHit hit;
+            Vector3 rayDestinationUp = transform.forward;
+            rayDestinationUp.y += 0.5f;
 
-            if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
+            Vector3 rayDestinationDown = transform.forward;
+            rayDestinationDown.y -= 0.5f;
+
+            Ray rayUp = new Ray(transform.position, rayDestinationUp);
+            Ray rayDown = new Ray(transform.position, rayDestinationDown);
+            
+
+            RaycastHit hit;
+            if (Physics.Raycast(rayUp, out hit, grabRange) ||
+                Physics.Raycast(rayDown, out hit, grabRange) ||
+                Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
