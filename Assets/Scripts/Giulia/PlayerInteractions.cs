@@ -5,55 +5,70 @@ using UnityEngine;
 public class PlayerInteractions : MonoBehaviour 
 {
     public float grabRange;
+    bool isCameraDetached = false;
     public Camera rocketCamera;
     public Camera playerCamera;
     public GameObject rocketGUI;
     public GameObject playerGUI;
 
     PlayerMovement playerMovement;
+    GameManager gameManager;
 
 
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
 
     void Update()
     {
-        RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
+        if (gameManager.onVictory && !isCameraDetached)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            SetPlayerCamera(true);
+
+            GameObject camera = transform.GetChild(1).gameObject;
+            camera.transform.parent = null;
+
+            isCameraDetached = true;
+        }
+        else
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
             {
-                if (hit.collider.tag == "Rocket")
+                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    if (rocketCamera.enabled)
+                    if (hit.collider.tag == "Rocket")
                     {
-                        SetPlayerCamera(true);
+                        if (rocketCamera.enabled)
+                        {
+                            SetPlayerCamera(true);
+                        }
+                        else
+                        {
+                            SetPlayerCamera(false);
+                        }
                     }
-                    else
+                    else if (hit.collider.tag == "Resource")
                     {
-                        SetPlayerCamera(false);
-                    }                     
-                }
-                else if (hit.collider.tag == "Resource")
-                {
-                    GameObject resource = hit.collider.gameObject;
+                        GameObject resource = hit.collider.gameObject;
 
-                    PlayerCameraAndGUI inventory = GetComponent<PlayerCameraAndGUI>();
-                    ResourcesQuantity resCount = new ResourcesQuantity();
-                    resCount = resource.GetComponent<ResourcesQuantity>();
+                        PlayerCameraAndGUI inventory = GetComponent<PlayerCameraAndGUI>();
+                        ResourcesQuantity resCount = new ResourcesQuantity();
+                        resCount = resource.GetComponent<ResourcesQuantity>();
 
-                    inventory.playerSteelCount += resCount.steelCount;
-                    inventory.playerCircuitsCount += resCount.circuitsCount;
-                    inventory.playerUraniumCount += resCount.uraniumCount;
-                    inventory.playerPlasticCount += resCount.plasticCount;
-                    inventory.playerGlassCount += resCount.glassCount;
-                    inventory.playerFuelCount += resCount.fuelCount;
+                        inventory.playerSteelCount += resCount.steelCount;
+                        inventory.playerCircuitsCount += resCount.circuitsCount;
+                        inventory.playerUraniumCount += resCount.uraniumCount;
+                        inventory.playerPlasticCount += resCount.plasticCount;
+                        inventory.playerGlassCount += resCount.glassCount;
+                        inventory.playerFuelCount += resCount.fuelCount;
 
-                    Destroy(resource);
+                        Destroy(resource);
+                    }
                 }
             }
         }

@@ -11,19 +11,20 @@ public class PlayerConditions : MonoBehaviour {
     public Text rocketHealthText;
     PlayerInteractions playerInteractions; 
     ResourcesPlacement resourcesPlacement;
-
+    GameManager gameManager;
 
 
     void Start()
     {
         playerInteractions = GetComponent<PlayerInteractions>();
         resourcesPlacement = GameObject.Find("ResourcePlacer").GetComponent<ResourcesPlacement>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
 
     void Update()
     {
-        if (playerInteractions.playerCamera.enabled && !resourcesPlacement.onInstancing)
+        if (playerInteractions.playerCamera.enabled && !resourcesPlacement.onInstancing && !gameManager.onVictory)
         {
             // decreases player's health
             if (health > 0)

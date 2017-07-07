@@ -15,12 +15,12 @@ public class ObjectivesManager : MonoBehaviour
     public Button hullButton;
     public Button fuelButton;
 
-    bool isNavigationBuilt = false;
-    bool isWindowsBuilt = false;
-    bool isEngineBuilt = false;
-    bool isWingsBuilt = false;
-    bool isHullBuilt = false;
-    bool isFuelBuilt = false;
+    public bool isNavigationBuilt = false;
+    public bool isWindowsBuilt = false;
+    public bool isEngineBuilt = false;
+    public bool isWingsBuilt = false;
+    public bool isHullBuilt = false;
+    public bool isFuelBuilt = false;
 
     void Start()
     {
