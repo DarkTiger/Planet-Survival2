@@ -18,7 +18,9 @@ public class GameManager : MonoBehaviour
     ObjectivesManager objManager;
     ParticleSystem explosion;
     ParticleSystem fire;
-    
+    public Image imageGameOver;
+    public Canvas playerCanvas;
+    public Canvas timeCanvas;   
 
 
     void Start()
@@ -113,10 +115,19 @@ public class GameManager : MonoBehaviour
             Rigidbody rbPlayer = player.GetComponent<Rigidbody>();
             rbPlayer.constraints = RigidbodyConstraints.None;
 
-            player.transform.Rotate(Random.Range(-1, 1), 0, Random.Range(-1, 1));
+            player.transform.Rotate(Random.Range(-5, 5), 0, Random.Range(-5, 5));
+            StartCoroutine(WaitSomeSeconds(8));
+            playerCanvas.enabled = false;
+            timeCanvas.enabled = false;
         }
 
-        onVictory = true;
-        
+        onVictory = true;        
+    }
+
+
+    IEnumerator WaitSomeSeconds(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        imageGameOver.enabled = true;
     }
 }
