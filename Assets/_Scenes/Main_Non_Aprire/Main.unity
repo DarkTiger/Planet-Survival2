@@ -1474,7 +1474,7 @@ Prefab:
     - target: {fileID: 114718067555502894, guid: 3bf409a26487a8c46a4e009093a5b458,
         type: 2}
       propertyPath: resourceCount
-      value: 1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 114718067555502894, guid: 3bf409a26487a8c46a4e009093a5b458,
         type: 2}
@@ -6977,12 +6977,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60bde5df317fd14fa4b16b9bbfdc295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steelCount: 1000
-  circuitsCount: 1000
-  uraniumCount: 1000
-  plasticCount: 1000
-  glassCount: 1000
-  fuelCount: 1000
+  steelCount: 0
+  circuitsCount: 0
+  uraniumCount: 0
+  plasticCount: 0
+  glassCount: 0
+  fuelCount: 0
   steelCountText: {fileID: 79562187}
   circuitsCountText: {fileID: 513620926}
   uraniumCountText: {fileID: 141948731}
