@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -42,7 +42,16 @@ public class GameManager : MonoBehaviour
         // Player death conditions
         if ((healthTemp <= 0.0f || maxTime <= 0.0f) && !isGameOverCalled)
         {
+            StartCoroutine(WaitSomeSeconds(8));
             GameOver();
+        }
+
+        if (imageGameOver.enabled)
+        {
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                SceneManager.LoadScene(0,LoadSceneMode.Single);
+            }
         }
 
         if (!resourcesPlacement.onInstancing && playerConditions.health > 0 && !onVictory)
@@ -121,13 +130,14 @@ public class GameManager : MonoBehaviour
             timeCanvas.enabled = false;
         }
 
-        onVictory = true;        
+        onVictory = true;
     }
 
 
     IEnumerator WaitSomeSeconds(int seconds)
     {
         yield return new WaitForSeconds(seconds);
+        timeCanvas.enabled = false;
         imageGameOver.enabled = true;
     }
 }
